@@ -1,0 +1,11 @@
+ec2-13-127-75-235.ap-south-1.compute.amazonaws.com
+13.127.75.235
+Administrator
+2018@vgvg
+http://downloads.businessobjects.com/akdlm/cr4vs2010/CRforVS_13_0_12.exe
+
+OS SSD 	  30GB   :vol-0c04c063906696290 
+EXTRA SSD 10Gb   :vol-06263ed7d7630c7ce
+7020573706
+
+

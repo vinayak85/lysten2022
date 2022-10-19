@@ -1,0 +1,56 @@
+/*
+//doc.employee_code=frappe.user_info().name
+//frm.set_value('employee_code', frappe.user_info().name)
+//frappe.ui.form.on('Stockiest Users', 'employee_code', function(frm){
+   // ---code here----
+    //frm.set_value("employee_code", frappe.user_info().name );
+//frappe.user_info().name
+//})
+
+
+frappe.ui.form.on("Stockiest Users", {
+	onload: function(frm) {
+               //cur_frm.set_value("employee_code","aaaaa");
+
+var Emp_Code = cur_frm.doc.employee_code;
+var Current_User = user;
+//if(Current_User!="Administrator")
+//{
+if( Emp_Code ) 
+{
+
+cur_frm.set_value("employee_code","jjj"); //Emp_Code);
+	/*frappe.call({
+	method:"frappe.client.get",
+	args: {
+		doctype:"Employee",
+		filters: {'personal_email': Current_User
+		},
+	},
+	callback: function(r) {
+		cur_frm.set_value("employee_code","Hii");//r.message["name"]);
+	}
+	})*/
+
+}
+else
+{
+	//cur_frm.set_value("employee_code","jjj"); //Emp_Code);
+
+        frappe.call({
+	method:"frappe.client.get",
+	args: {
+		doctype:"Employee",
+		filters: {'personal_email': Current_User
+		},
+	},
+	callback: function(r) {
+		cur_frm.set_value("employee_code",r.message["name"]);
+	}
+	})
+}
+//}
+
+
+        }
+});*/

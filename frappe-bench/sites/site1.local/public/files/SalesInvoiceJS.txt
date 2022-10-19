@@ -1,0 +1,183 @@
+frappe.ui.form.on("Sales Invoice", {
+	onload: function(frm) {
+
+frappe.ui.form.on("Sales Invoice Item", "free_quantity", function(frm, cdt, cdn) {
+
+for(var k in frm.doc.items) {
+   var q=frm.doc.items[k].qty;
+   var f= frm.doc.items[k].free_quantity;
+   var t=frm.doc.items[k].stock_qty;
+   var r=frm.doc.items[k].rate; 
+
+
+    frappe.model.set_value(cdt, cdn, 'stock_qty',q+f); 
+    
+}
+
+   //alert(q+' '+ f+' '+t);
+
+//if((frm.doc.items[k].qty)<0)
+//{
+//alert(k);
+//frappe.model.set_value(cdt, cdn, 'free_quantity',-(frm.doc.items[k].free_quantity)); 
+//}
+
+    frappe.model.set_value(cdt, cdn, 'stock_qty',q+f); 
+
+    //cur_frm.set_value("qty", 420);
+
+});
+
+},
+
+//start validate
+  
+   validate: function(frm, cdt, cdn) {
+      
+         for(var k in frm.doc.items) {
+
+	
+      var q=frm.doc.items[k].qty;
+       var f= frm.doc.items[k].free_quantity;
+      var t=frm.doc.items[k].stock_qty;
+
+     //alert(q+' '+ f+' '+t);
+     frappe.model.set_value(cdt, cdn, 'stock_qty',q+f); 
+
+
+    //cur_frm.set_value("qty", 420);
+
+//if((frm.doc.items[k].qty)<0)
+//{
+//frappe.model.set_value(cdt, cdn, 'free_quantity',-(frm.doc.items[k].free_quantity));  
+//}
+       }
+   },
+   
+//end validate
+
+onfocusout: function(frm, cdt, cdn) {
+
+for(var k in frm.doc.items) {
+	
+      var q=frm.doc.items[k].qty;
+       var f= frm.doc.items[k].free_quantity;
+      var t=frm.doc.items[k].stock_qty;
+
+
+     frappe.model.set_value(cdt, cdn, 'stock_qty',q+f); 
+
+//if((frm.doc.items[k].qty)<0)
+//{
+//alert(-f);
+//frappe.model.set_value(cdt, cdn, 'free_quantity',-(frm.doc.items[k].free_quantity));  
+//}
+
+       }
+
+
+}
+
+});
+
+
+frappe.ui.form.on("Sales Invoice", "print_report", function(frm) {
+//code comment Test in below
+
+
+
+//This is as simple as this.
+//window.open('_link is here_', 'name'); 
+//Function description:
+//'name' is a name of the window. Following names are supported
+//_blank - URL is loaded into a new tab. This is default.
+//_parent - URL is loaded into the parent frame
+//_self - URL replaces the current page
+//_top - URL replaces any framesets that may be loaded
+
+
+//var DoctorList = {
+//	MRUserId:frm.doc.employee_code,
+//	code:frm.doc.name,
+//	Employee_FullName:frm.doc.employee_name,
+//	RG_NAME:"Kolhapur",
+//	Area_NAME:"Kolhapur",
+//	HQ_NAME:"Kolhapur",
+//	Designation_Name:"TBM",
+//	Doctor_FullName:frm.doc.doctor_name,
+//	CodeSpecialization:frm.doc.doctor_specialization,
+//	WorkId:frm.doc.degree,
+//	City:frm.doc.city,
+//	City2:frm.doc.city,
+//	Address:frm.doc.address,
+//	Pin:frm.doc.pin_code,
+//	Phone:frm.doc.per_phone,
+//	Mobile:frm.doc.per_mobile,
+//	EmailId:frm.doc.email,
+//	TypeId:frm.doc.doctor_type,
+//	HospitalName:frm.doc.hospital_name,
+//	ProductId:"1",//frm.doc.doctor_name,
+//	Latitude:frm.doc.latitude,
+//	Longitude:frm.doc.longitude
+
+       // sender_name: $('[name="sender_name"]').val(),
+        //company_name: $('[name="company_name"]').val(),
+       // email: $('[name="email"]').val(),
+        //phone: $('[name="phone"]').val(),
+        //product: $('[name="product"]').val(),
+//      }
+//DoctorList = JSON.stringify(DoctorList); 
+
+
+//http://google.co.in
+//var win = //window.open('http://localhost:50853/Report/Forms/Form_Salary_slip_report/?//name='//+DoctorList  , '_blank');
+
+//var win = window.open('http://google.co.in/?name='+DoctorList , '_blank');
+//var win = window.open('http://google.co.in/?name='+frm.doc.name , '_blank');
+
+//local host URL http://localhost:54898/MYSQLConnTest
+//var win = window.open('http://localhost:54898/MYSQLConnTest/?name='+frm.doc.name+'&parameter=erp'  , '_blank');
+//,'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=120,height=120'
+
+//http://13.126.122.12/MYSQLConnTest/?name=SR-RD-00009&parameter=diff
+//http://lystenglobalerp.org/Report/Forms/Form_Salary_slip_report
+//Hosted App URL (1)13.126.122.12,13.127.22.180
+var win= window.open('http://13.127.75.235/MYSQLConnTest/?name='+frm.doc.name+'&parameter=erp'  , '_blank');
+if (win) {
+    //Browser has allowed it to be opened
+    win.focus();
+} else {
+    //Browser has blocked it
+    alert('Please allow popups for this website');
+}
+
+
+
+});
+
+
+
+frappe.ui.form.on("Sales Invoice", "print_difference_rate", function(frm) {
+
+
+//local host URL http://localhost:54898/MYSQLConnTest
+//var win = window.open('http://localhost:54898/MYSQLConnTest/?name='+frm.doc.name+'&parameter=diff'  , '_blank');
+//,'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=120,height=120'
+
+//Hosted App URL (1)13.126.122.12
+var win = window.open('http://13.127.22.180/MYSQLConnTest/?name='+frm.doc.name+'&parameter=diff'  , '_blank');
+if (win) {
+    //Browser has allowed it to be opened
+    win.focus();
+} else {
+    //Browser has blocked it
+    alert('Please allow popups for this website');
+}
+
+});
+
+
+
+
+
+
